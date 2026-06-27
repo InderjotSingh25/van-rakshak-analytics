@@ -1,0 +1,26 @@
+-- ============================================================
+-- Measure: Avg Distance Per Beat
+-- Table:   VanRakshak_MasterDataset
+-- Author:  Inderjot Singh Matharoo
+-- Purpose: Calculates the average patrol distance per unique
+--          beat (P.S / sub area) for area coverage analysis
+-- Used in: Advanced Analytics pages — Area Coverage visual
+-- ============================================================
+
+Avg Distance Per Beat =
+DIVIDE(
+    SUM(vw_sb_patrol_all[total_distance]),
+    DISTINCTCOUNT(vw_sb_patrol_all[sub_area_name]),
+    0
+)
+
+-- ============================================================
+-- Notes:
+-- • Divides total distance by number of distinct beats
+-- • Used as X-axis in Area Coverage per Beat bar chart
+-- • Returns 0 to avoid blank/error when no beats exist
+-- • For per-beat breakdown use SUM(total_distance) grouped
+--   by sub_area_name in a bar chart instead — this measure
+--   returns a single scalar value (global average)
+-- • Best used as a KPI card showing overall coverage rate
+-- ============================================================

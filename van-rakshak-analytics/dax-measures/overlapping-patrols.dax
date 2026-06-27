@@ -1,0 +1,38 @@
+-- ============================================================
+-- Measure: Overlapping Patrols
+-- Table:   VanRakshak_MasterDataset
+-- Author:  Inderjot Singh Matharoo
+-- Purpose: Counts patrol records where more than one officer
+--          patrolled the same beat on the same date
+--          (operational inefficiency detection)
+-- Used in: All Advanced Analytics pages (Page 2)
+-- ============================================================
+
+Overlapping Patrols =
+CALCULATE(
+    COUNTROWS(vw_sb_patrol_all),
+    FILTER(
+        vw_sb_patrol_all,
+        CALCULATE(
+            DISTINCTCOUNT(vw_sb_patrol_all[guard_name]),
+            ALLEXCEPT(
+                vw_sb_patrol_all,
+                vw_sb_patrol_all[sub_area_name],
+                vw_sb_patrol_all[patrolling_date]
+            )
+        ) > 1
+    )
+)
+
+-- ============================================================
+-- Notes:
+-- • Identifies beats (P.S) where 2+ officers patrolled
+--   on the same date — indicates beat assignment inefficiency
+-- • ALLEXCEPT removes all filters except beat and date
+--   so DISTINCTCOUNT counts all officers per beat per day
+-- • Result used as KPI card on Advanced Analytics page
+-- • For drill-down detail, use a Table visual filtered by
+--   Count of guard_name > 1 in the Filters pane
+-- • Day patrol: 24 overlapping instances detected
+-- • Night patrol: 16 overlapping instances detected
+-- ============================================================

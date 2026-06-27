@@ -1,0 +1,35 @@
+-- ============================================================
+-- Measure: MoM Distance % Change (Day Patrol)
+-- Table:   VanRakshak_MasterDataset
+-- Author:  Inderjot Singh Matharoo
+-- Purpose: Calculates month-over-month percentage change in
+--          total patrol distance for day patrols
+-- Used in: Patrolling Summary, Patrolling Data Extractor
+-- ============================================================
+
+MoM Distance % Change =
+VAR CurrentMonth =
+    CALCULATE(
+        SUM(vw_sb_patrol_all[total_distance]),
+        DATESMTD(vw_sb_dim_date[calendar_date])
+    )
+VAR LastMonth =
+    CALCULATE(
+        SUM(vw_sb_patrol_all[total_distance]),
+        DATEADD(
+            DATESMTD(vw_sb_dim_date[calendar_date]),
+            -1,
+            MONTH
+        )
+    )
+RETURN
+    DIVIDE(CurrentMonth - LastMonth, LastMonth, 0)
+
+-- ============================================================
+-- Notes:
+-- • Returns 0 when LastMonth is blank (no division by zero)
+-- • Requires vw_sb_dim_date to be marked as Date Table
+-- • Best used with a date slicer set to a specific month
+-- • Format as Percentage with 1 decimal place
+-- • Value of 0.0 when full date range selected is expected
+-- ============================================================
