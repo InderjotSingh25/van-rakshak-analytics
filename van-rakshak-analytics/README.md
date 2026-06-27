@@ -242,7 +242,7 @@ git clone https://github.com/yourusername/van-rakshak-analytics.git
 ## 📸 Screenshots
 
 ### Patrolling Summary — Summary View
-![Patrolling Summary](<img width="1788" height="947" alt="Screenshot 2026-06-27 132657" src="https://github.com/user-attachments/assets/3e0f165b-0311-41d2-acea-84be725e2997" />)
+![Patrolling Summary](Screenshot 2026-06-27 132657.png")
 
 ### Night Patrolling — Advanced Analytics
 ![Advanced Analytics](./screenshots/07-advanced-analytics-heatmap.png)
