@@ -257,7 +257,7 @@ git clone https://github.com/yourusername/van-rakshak-analytics.git
 **Inderjot Singh Matharoo**
 - 🎓 B.Tech Computer Science Engineering, MIT ADT University Pune
 - 💼 Jr. Data Engineer Intern, Intra Techno Solutions Pvt. Ltd.
-- 🔗 [LinkedIn](https://linkedin.com/in/www.linkedin.com/in/inderjotsingh25)
+- 🔗 [LinkedIn](https://www.linkedin.com/in/inderjotsingh25/)
 - 📧 inderjot@intratechnosolutions.com
 
 ---
