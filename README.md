@@ -242,13 +242,12 @@ git clone https://github.com/yourusername/van-rakshak-analytics.git
 ## 📸 Screenshots
 
 ### Patrolling Summary — Summary View
-![Patrolling Summary](./screenshots/01-patrolling-summary.png)
+![Patrolling Summary](./van-rakshak-analytics/screenshots/01-patrolling-summary.png)
 
 ### Night Patrolling — Advanced Analytics
-![Advanced Analytics](./screenshots/07-advanced-analytics-heatmap.png)
-
+![Advanced Analytics](./van-rakshak-analytics/screenshots/07-advanced-analytics-heatmap.png)
 ### Foot Patrol Officer — Azure Maps
-![Foot Patrol Map](./screenshots/03-foot-patrol-officer.png)
+![Foot Patrol Map](./van-rakshak-analytics/screenshots/03-foot-patrol-officer.png)
 
 ---
 
